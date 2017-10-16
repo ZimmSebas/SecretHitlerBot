@@ -4,21 +4,32 @@ typedef long long int ll;
 #define forn(i,n) for(ll i=0;i<n;i++)
 #define forr(i,a,b) for(ll i=a;i<b;i++)
 
+/* /start Inicia el bot
+ * /version Da el nro de la version
+ * /credits Creditos!
+ * /startgame Inicia una partida
+ * /nextgame Te pone en cola para la proxima partida
+ * /flee Salis de la partida
+ * /players Da la lista de jugadores
+ * /config Abre configuraciones para admins
+ * /forcestart fuerza el inicio de una partida
+ */
+
+
 typedef struct jugador{
 	string name; //Nombre Telegram
 	char clase; //Facho, Liberal o H 
-	char status; //Vivo o muerto (Candidato Presi? Canciller?)
+	char status; //Vivo o muerto
 	char rango; //Presi, Canc, Nada
 }jug;
 
-jug players[100];
+jug *players;
 
-
-void AsignarJugadores(int cantjug){
+void AsignarJugadores(int cantjug){//Falta Telegram
 	//esto supuestamente asigna cada jugador a un nro
 }
 
-void AsignarClases(int cantjug){
+void AsignarClases(int cantjug){//Falta activar con los mensajes pero resto anda
 	
 	int liberales = (cantjug/2) + 1;
 	int fachos = (cantjug/2) - 1;
@@ -67,43 +78,46 @@ void AsignarClases(int cantjug){
 	*/
 }
 
-void NoAlcanza(){
-	cout << "No hay suficientes jugadores\n";
+void NoAlcanza(){//Falta activar con Telegram
+	cout << "No hay suficientes jugadores! Se cancela la partida\n"; //Esto es un mensaje al grupo
 }
 
-
-int IniciarConteoparaAgregar(){
-	return 4;
+int IniciarConteoparaAgregar(){//Falta todo, Telegram
+	return 4;//Esto esta mal, aca inicia una funcion para empezar a unirse
 }
 
-void InicializarValores(){
+void InicializarValores(int cantjug){
+	
+	players = (jug*)malloc(sizeof(jug)*cantjug);
+	
+	forn(i,cantjug){//seteo a todos vivos
+		players[i].status = 'a';
+	}
 	
 }
 
-bool StartElection(){
+bool StartElection(){//Vacio
 
 
 	return 0;
 }
 
-bool StartLegisl(){
+bool StartLegisl(){//Vacio
 
 
 	return 0;
 }
 
-bool StartRandomResult(){
-
-
-	return 0;
+bool StartRandomResult(){//funciona!
+	return (rand() % 1000) % 2;
 }
 
-void WinFachos(){
-	
+void WinFachos(){//Falta Telegram
+	cout << "Los fascistas han tomado el poder y han vencido!/n"; //Esto es un mensaje al grupo
 }
 
-void WinLiberals(){
-	
+void WinLiberals(){//Falta Telegram
+	cout << "Los liberales han mantenido su poder y han vencido!/n"; //Esto es un mensaje al grupo
 }
 
 void IniciarPartida(){
@@ -111,18 +125,16 @@ void IniciarPartida(){
 	int proplib = 0,propfas = 0;
 	bool result;
 	
-	int cantjug = IniciarConteoparaAgregar();
+	int cantjug = IniciarConteoparaAgregar();//funcion para unirse
 	
-	if(cantjug < 5) {
+	if(cantjug < 5) { //Si no alcanza 
 		NoAlcanza();
 		return;
 	}
 	
-	InicializarValores();
-	
-	
-	AsignarJugadores(cantjug);
-	AsignarClases(cantjug);
+	InicializarValores(cantjug);//Pone a todos los jugadores como vivos
+	AsignarJugadores(cantjug);//Asigna jugadores a espacios de memoria
+	AsignarClases(cantjug);//Asigna jugadores a sus clases e inicia la partida
 	
 	while( (players[0].status=='a' && proplib<5) || (propfas<6)){
 		int cantvotaciones=0;
