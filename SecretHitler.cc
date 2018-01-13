@@ -199,7 +199,12 @@ void IniciarPartida(){
 
 int main(){
 	
-	TgBot::Bot bot("");
+	freopen("Token","r",stdin);
+	string Token;
+	cin >> Token;
+	
+	
+	TgBot::Bot bot(Token);
 	bot.getEvents().onCommand("start", [&bot](Message::Ptr message) {
 		bot.getApi().sendMessage(message->chat->id, "Hi!");
 	});
