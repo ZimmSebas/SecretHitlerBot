@@ -51,3 +51,113 @@ make[1]: se sale del directorio «/home/pablo/Escritorio/Seba/Boludeces/SecretHi
 make: *** [cmTryCompileExec1019135974/fast] Error 2
 
 
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4be7a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4be7a.dir/build.make CMakeFiles/cmTC_4be7a.dir/build
+make[1]: se entra en el directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4be7a.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_4be7a.dir/CheckSymbolExists.c.o   -c /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_4be7a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4be7a.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_4be7a.dir/CheckSymbolExists.c.o  -o cmTC_4be7a -rdynamic 
+CMakeFiles/cmTC_4be7a.dir/CheckSymbolExists.c.o: En la función `main':
+CheckSymbolExists.c:(.text+0xa): referencia a `pthread_create' sin definir
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_4be7a.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_4be7a'
+make[1]: *** [cmTC_4be7a] Error 1
+make[1]: se sale del directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_4be7a/fast'
+make: *** [cmTC_4be7a/fast] Error 2
+
+File /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_639d3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_639d3.dir/build.make CMakeFiles/cmTC_639d3.dir/build
+make[1]: se entra en el directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_639d3.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_639d3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_639d3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_639d3.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_639d3.dir/CheckFunctionExists.c.o  -o cmTC_639d3 -rdynamic -lpthreads 
+/usr/bin/ld: no se puede encontrar -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_639d3.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_639d3'
+make[1]: *** [cmTC_639d3] Error 1
+make[1]: se sale del directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_639d3/fast'
+make: *** [cmTC_639d3/fast] Error 2
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c4650/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c4650.dir/build.make CMakeFiles/cmTC_c4650.dir/build
+make[1]: se entra en el directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c4650.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_c4650.dir/CheckSymbolExists.c.o   -c /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_c4650
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c4650.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_c4650.dir/CheckSymbolExists.c.o  -o cmTC_c4650 -rdynamic 
+CMakeFiles/cmTC_c4650.dir/CheckSymbolExists.c.o: En la función `main':
+CheckSymbolExists.c:(.text+0xa): referencia a `pthread_create' sin definir
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_c4650.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_c4650'
+make[1]: *** [cmTC_c4650] Error 1
+make[1]: se sale del directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_c4650/fast'
+make: *** [cmTC_c4650/fast] Error 2
+
+File /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a3991/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a3991.dir/build.make CMakeFiles/cmTC_a3991.dir/build
+make[1]: se entra en el directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a3991.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_a3991.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a3991
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3991.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_a3991.dir/CheckFunctionExists.c.o  -o cmTC_a3991 -rdynamic -lpthreads 
+/usr/bin/ld: no se puede encontrar -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_a3991.dir/build.make:97: fallo en las instrucciones para el objetivo 'cmTC_a3991'
+make[1]: *** [cmTC_a3991] Error 1
+make[1]: se sale del directorio '/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/CMakeTmp'
+Makefile:126: fallo en las instrucciones para el objetivo 'cmTC_a3991/fast'
+make: *** [cmTC_a3991/fast] Error 2
+
+

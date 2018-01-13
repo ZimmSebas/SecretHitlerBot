@@ -1,5 +1,12 @@
 #include <bits/stdc++.h>
+#include <signal.h>
+#include <exception>
+#include <tgbot/tgbot.h>
 using namespace std;
+using namespace TgBot;
+
+bool sigintGot = false;
+
 typedef long long int ll;
 #define forn(i,n) for(ll i=0;i<n;i++)
 #define forr(i,a,b) for(ll i=a;i<b;i++)
@@ -88,7 +95,10 @@ int IniciarConteoparaAgregar(){//Falta todo, Telegram
 
 void InicializarValores(int cantjug){
 	
-	players = (jug*)malloc(sizeof(jug)*cantjug);
+	//~ players = (jug*)malloc(sizeof(jug)*cantjug);
+	players = new jug [cantjug];
+	
+	//~ delete[] players;
 	
 	forn(i,cantjug){//seteo a todos vivos
 		players[i].status = 'a';
@@ -108,7 +118,7 @@ bool StartLegisl(){//Vacio
 	return 0;
 }
 
-bool StartRandomResult(){//funciona!
+bool StartRandomResult(){//funciona! esta mal!!!!!!!!!! <----
 	return (rand() % 1000) % 2;
 }
 
@@ -188,6 +198,22 @@ void IniciarPartida(){
 
 
 int main(){
+	
+	TgBot::Bot bot("435822208:AAEkaPnbBT6g7JQJ5-ImfBpvUc24kaQowgA");
+	bot.getEvents().onCommand("start", [&bot](Message::Ptr message) {
+		bot.getApi().sendMessage(message->chat->id, "Hi!");
+	});
+	try {
+        printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
+        TgBot::TgLongPoll longPoll(bot);
+        while (true) {
+            printf("Long poll started\n");
+            longPoll.start();
+        }
+    } catch (TgBot::TgException& e) {
+        printf("error: %s\n", e.what());
+    }
+	
 	
 	return 0;
 }

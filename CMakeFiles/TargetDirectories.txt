@@ -1,0 +1,6 @@
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/install.dir
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/list_install_components.dir
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/install/local.dir
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/TgBot.dir
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/edit_cache.dir
+/home/usuario/Escritorio/SecretHitlerBot/CMakeFiles/rebuild_cache.dir
