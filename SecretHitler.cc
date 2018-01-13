@@ -199,7 +199,7 @@ void IniciarPartida(){
 
 int main(){
 	
-	TgBot::Bot bot("435822208:AAEkaPnbBT6g7JQJ5-ImfBpvUc24kaQowgA");
+	TgBot::Bot bot("");
 	bot.getEvents().onCommand("start", [&bot](Message::Ptr message) {
 		bot.getApi().sendMessage(message->chat->id, "Hi!");
 	});
