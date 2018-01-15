@@ -7,7 +7,10 @@ using namespace TgBot;
 
 bool sigintGot = false;
 
+bool startgame = false;
+
 typedef long long int ll;
+typedef long double ld;
 #define forn(i,n) for(ll i=0;i<n;i++)
 #define forr(i,a,b) for(ll i=a;i<b;i++)
 
@@ -25,6 +28,7 @@ typedef long long int ll;
 
 typedef struct jugador{
 	string name; //Nombre Telegram
+	ld id; //Id Chat
 	char clase; //Facho, Liberal o H 
 	char status; //Vivo o muerto
 	char rango; //Presi, Canc, Nada
@@ -90,7 +94,13 @@ void NoAlcanza(){//Falta activar con Telegram
 }
 
 int IniciarConteoparaAgregar(){//Falta todo, Telegram
-	return 4;//Esto esta mal, aca inicia una funcion para empezar a unirse
+	
+	int cantjug = 0;
+	
+	
+	
+	
+	return cantjug;//Esto esta mal, aca inicia una funcion para empezar a unirse
 }
 
 void InicializarValores(int cantjug){
@@ -98,7 +108,7 @@ void InicializarValores(int cantjug){
 	//~ players = (jug*)malloc(sizeof(jug)*cantjug);
 	players = new jug [cantjug];
 	
-	//~ delete[] players;
+	//~ 
 	
 	forn(i,cantjug){//seteo a todos vivos
 		players[i].status = 'a';
@@ -191,6 +201,7 @@ void IniciarPartida(){
 		cout << "La cagaste en algo \n";
 	}
 	
+	delete[] players;
 	
 } 
 
@@ -204,10 +215,27 @@ int main(){
 	cin >> Token;
 	
 	
+	
 	TgBot::Bot bot(Token);
-	bot.getEvents().onCommand("start", [&bot](Message::Ptr message) {
-		bot.getApi().sendMessage(message->chat->id, "Hi!");
+	TgBot::Api api(Token);
+	
+	bot.getEvents().onCommand("start", [&bot](Message::Ptr message) { //start
+		bot.getApi().sendMessage(message->chat->id, "Hola! ");
 	});
+	
+	bot.getEvents().onCommand("startgame", [&api](Message::Ptr message) { //startgame
+		if (api.getChat(message->chat->id)->type == Chat::Type::Group){
+			if(startgame){
+				api.sendMessage(message->chat->id, "Ya empezó una pertida!");
+			}
+			startgame = true;//Chequear para cada grupo distinto, para despues
+			IniciarPartida();
+		}
+		else{
+			api.sendMessage(message->chat->id, "Lo siento, esto no es un grupo");
+		}
+	});
+	
 	try {
         printf("Bot username: %s\n", bot.getApi().getMe()->username.c_str());
         TgBot::TgLongPoll longPoll(bot);
